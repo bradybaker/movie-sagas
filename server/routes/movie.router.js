@@ -14,6 +14,19 @@ router.get('/', (req, res) => {
     });
 });
 
+router.get('/:id', (req, res) => {
+  console.log('GET - MOVIE WITH THE ID OF ======', req.params.id);
+  let queryText = 'SELECT * FROM movies WHERE id=$1';
+  pool.query(queryText, [req.params.id])
+    .then(result => {
+      res.send(result.rows);
+    })
+    .catch(err => {
+      console.log('Error in GET specific movie details', err);
+      res.sendStatus(500);
+    })
+})
+
 
 router.post('/', (req, res) => {
   console.log(req.body);

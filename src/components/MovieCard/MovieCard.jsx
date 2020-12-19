@@ -11,40 +11,47 @@ import Typography from '@material-ui/core/Typography';
 
 const styles = {
     card: {
-        maxWidth: 345,
+        maxWidth: 500,
         marginLeft: 40,
         marginRight: 200,
         marginBottom: 50,
     },
     media: {
-        height: 400,
+        height: 500,
+        width: 346,
+        justifyContent: 'center'
     },
 };
 
 class MovieCard extends Component {
+
+    goToDetails = (event, id) => {
+        console.log('This is the movie ID I am clicking on', id)
+    }
+
     render() {
         const classes = this.props.classes
+        const { id, poster, title } = this.props.movie
         return (
             <div>
                 <Card className={classes.card}>
                     <CardActionArea>
                         <CardMedia
                             className={classes.media}
-                            image={this.props.movie.poster}
-                            title={this.props.movie.name}
+                            image={poster}
+                            title={title}
                         />
                         <CardContent>
                             <Typography gutterBottom variant="h5" component="h2">
-                                {this.props.movie.title}
+                                {title}
                             </Typography>
-                            <Typography component="h4">
+                            {/* <Typography component="h4">
                                 {this.props.movie.description}
-                            </Typography>
+                            </Typography> */}
                         </CardContent>
                     </CardActionArea>
                     <CardActions>
-                        {/* TODO - still need to add to add the name of the menu item to the moviesName so it can add to the state */}
-                        <Button className='button' size="small" color="primary">
+                        <Button onClick={(event) => this.goToDetails(event, id)} className='button' size="small" color="primary">
                             Go to Details
                         </Button>
                     </CardActions>
