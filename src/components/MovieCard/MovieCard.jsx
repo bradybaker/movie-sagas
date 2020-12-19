@@ -8,6 +8,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { withRouter } from 'react-router-dom'
 
 const styles = {
     card: {
@@ -28,6 +29,7 @@ class MovieCard extends Component {
     goToDetails = (event, id) => {
         console.log('This is the movie ID I am clicking on', id)
         this.props.dispatch({ type: 'FETCH_DETAIL', payload: id })
+        this.props.history.push(`/details/${id}`)
     }
 
     render() {
@@ -62,4 +64,4 @@ class MovieCard extends Component {
     }
 }
 
-export default withStyles(styles)(connect()(MovieCard));
+export default withRouter(withStyles(styles)(connect()(MovieCard)));
