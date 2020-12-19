@@ -27,6 +27,7 @@ class MovieCard extends Component {
 
     goToDetails = (event, id) => {
         console.log('This is the movie ID I am clicking on', id)
+        this.props.dispatch({ type: 'FETCH_DETAIL', payload: id })
     }
 
     render() {

@@ -21,6 +21,7 @@ function* rootSaga() {
 function* fetchDetail(id) {
     try {
         const response = yield axios.get(`/api/movie/${id.payload}`)
+        console.log('This is response.data for specific movie =========', response.data)
         yield put({ type: 'SET_DETAIL', payload: response.data })
     } catch (error) {
         console.log('Error in fetchDetail index.js', error);
