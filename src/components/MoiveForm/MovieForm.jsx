@@ -118,7 +118,7 @@ class MovieForm extends Component {
                         </Select>
                     </FormControl>
 
-                    <Button variant="contained" color="primary" type='submit' className={classes.button} >Submit Movie</Button>
+                    <Button variant="contained" color="primary" type='submit' className={classes.button}>Submit Movie</Button>
                     <Button variant="contained" color="secondary" onClick={this.handleCancel} className={classes.button} >Cancel</Button>
                 </form>
             </div >

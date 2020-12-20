@@ -21,7 +21,7 @@ This web application is a full-stack movie list that the user can populate thems
 ## Installation 
 
 1. Open Postico
-2. Copy code from data.sql into your db
+2. Copy code from database.sql into your db
 3. run `npm install`
 4. In two different terminals run `npm run server` and `npm run client`
 5. Web app is viewable on localhost:3000
