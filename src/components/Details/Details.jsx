@@ -3,9 +3,15 @@ import { connect } from 'react-redux'
 
 class Details extends Component {
 
-    getGenres = () => {
+    formatGenres = () => {
         let genreString = this.props.details.map((movie, i) => {
-            return this.props.details.length - 1 === i ? `and ${movie.genre}` : `${movie.genre}, `
+            if (this.props.details.length === 1) {
+                return `${movie.genre}`
+            } else if (this.props.details.length - 1 === i) {
+                return `and ${movie.genre}`
+            } else {
+                return `${movie.genre}, `
+            }
         })
         return genreString
     }
@@ -21,7 +27,7 @@ class Details extends Component {
                 <div className='descriptionCard'>
                     <h1>{this.props.details[0]?.title}</h1>
                     <img alt='Moive Poster' src={this.props.details[0]?.poster} />
-                    <h2>Genres: {this.getGenres()}</h2>
+                    <h2>Genres: {this.formatGenres()}</h2>
                     <h3>Description</h3>
                     <h4>{this.props.details[0]?.description}</h4>
                     <button onClick={this.backToHome}>Back To List</button>
