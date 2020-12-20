@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import Details from '../Details/Details';
+import Header from '../Header/Header';
 import Home from '../Home/Home';
 import MovieForm from '../MoiveForm/MovieForm';
 import './App.css';
@@ -12,6 +13,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Header />
         <Router>
           <nav>
             <ul>

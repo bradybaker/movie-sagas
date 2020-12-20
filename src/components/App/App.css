@@ -2,6 +2,7 @@
   text-align: center;
   margin: 0px;
   padding: 0px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 nav li {
@@ -14,12 +15,4 @@ nav li {
 nav li a {
   text-decoration: none;
   font-size: 25px;
-}
-
-.MuiCardActions-root-77 {
-  justify-content: space-evenly;
-}
-
-.MuiCardActions-root-194 {
-  justify-content: space-evenly;
 }

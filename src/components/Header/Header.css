@@ -1,0 +1,11 @@
+.headerContainer {
+    padding: 20px;
+    background-color: darkblue;
+    font-weight: bolder;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.headerTitleText {
+    font-size: 3rem;
+    color: aliceblue
+}
