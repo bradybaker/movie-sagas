@@ -1,9 +1,16 @@
+.descriptionCardContainer {
+    justify-content: center;
+    margin-left: 5%;
+}
+
 .descriptionCard {
         width: 80%;
         height: 80%;
+        text-align: center;
         margin-left: 8em;
         margin-right: 8em;
         margin-bottom: 8em;
+        user-select: none;
         background-color: white;
         border-radius: 8px
 }

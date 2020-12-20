@@ -10,7 +10,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { withRouter } from 'react-router-dom'
 
-const styles = {
+const styles = theme => ({
     card: {
         maxWidth: 500,
         marginLeft: 40,
@@ -22,7 +22,10 @@ const styles = {
         width: 346,
         justifyContent: 'center'
     },
-};
+    button: {
+        margin: theme.spacing.unit,
+    }
+});
 
 class MovieCard extends Component {
 
@@ -54,7 +57,8 @@ class MovieCard extends Component {
                         </CardContent>
                     </CardActionArea>
                     <CardActions>
-                        <Button onClick={(event) => this.goToDetails(event, id)} className='button' size="small" color="primary">
+                        <Button onClick={(event) => this.goToDetails(event, id)}
+                            className={classes.button} size="small" color="primary" variant='contained'>
                             Go to Details
                         </Button>
                     </CardActions>
