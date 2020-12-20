@@ -9,6 +9,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { withRouter } from 'react-router-dom'
+import '../App/App.css'
 
 const styles = theme => ({
     card: {
@@ -35,6 +36,10 @@ class MovieCard extends Component {
         this.props.history.push(`/details/${id}`)
     }
 
+    handleDelete = (event, id) => {
+        this.props.dispatch({ type: 'DELETE_MOVIE', payload: id })
+    }
+
     render() {
         const classes = this.props.classes
         const { id, poster, title } = this.props.movie
@@ -51,16 +56,19 @@ class MovieCard extends Component {
                             <Typography gutterBottom variant="h5" component="h2">
                                 {title}
                             </Typography>
-                            {/* <Typography component="h4">
-                                {this.props.movie.description}
-                            </Typography> */}
                         </CardContent>
                     </CardActionArea>
                     <CardActions>
-                        <Button onClick={(event) => this.goToDetails(event, id)}
-                            className={classes.button} size="small" color="primary" variant='contained'>
-                            Go to Details
+                        <div className='buttonsContainer'>
+                            <Button onClick={(event) => this.goToDetails(event, id)}
+                                className={classes.button} size="small" color="primary" variant='contained'>
+                                Go to Details
                         </Button>
+                            <Button onClick={(event) => this.handleDelete(event, id)}
+                                className={classes.button} size="small" color="secondary" variant='contained'>
+                                Delete Movie
+                        </Button>
+                        </div>
                     </CardActions>
                 </Card>
             </div>
