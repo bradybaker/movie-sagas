@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { HashRouter as Router, Route } from 'react-router-dom';
+import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import Details from '../Details/Details';
 import Home from '../Home/Home';
 import MovieForm from '../MoiveForm/MovieForm';
@@ -13,6 +13,12 @@ class App extends Component {
     return (
       <div className="App">
         <Router>
+          <nav>
+            <ul>
+              <li><Link to='/'>Movie List</Link></li>
+              <li><Link to='/movieFrom'>Add a Movie!</Link></li>
+            </ul>
+          </nav>
           <Route exact path='/' component={Home} />
           <Route path='/movieForm' component={MovieForm} />
           <Route path='/details/:id' component={Details} />

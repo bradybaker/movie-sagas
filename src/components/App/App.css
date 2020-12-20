@@ -10,15 +10,14 @@
   color: white;
 }
 
-.App-title {
-  font-size: 1.5em;
+nav li {
+  margin-top: 20px;
+  display: inline-block;
+  margin-right: 7em;
+  list-style-type: none;
 }
 
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+nav li a {
+  text-decoration: none;
+  font-size: 25px;
 }
