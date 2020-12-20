@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   console.log('GET - MOVIE WITH THE ID OF ======', req.params.id);
-  let queryText = 'SELECT * FROM movies WHERE id=$1';
+  let queryText = 'SELECT movies.id, movies.title, movies.poster, movies.description, genres.name AS genre FROM movies JOIN movie_genre AS mg ON movies.id = mg.movie_id JOIN genres ON genres.id = mg.genre_id WHERE movies.id=$1';
   pool.query(queryText, [req.params.id])
     .then(result => {
       res.send(result.rows);

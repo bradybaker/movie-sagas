@@ -3,21 +3,29 @@ import { connect } from 'react-redux'
 
 class Details extends Component {
 
-    componentDidMount() {
-        // this.props.dispatch({ type: 'SET_DETAIL' })
+    getGenres = () => {
+        let genreString = this.props.details.map((movie, i) => {
+            return this.props.details.length - 1 === i ? `and ${movie.genre}` : `${movie.genre}, `
+        })
+        return genreString
+    }
+
+    backToHome = () => {
+        this.props.history.push('/');
     }
 
     render() {
-        console.log('This is reduxState details-->', this.props.details)
+        console.log('This is reduxState details-->', this.props.details[0]?.title)
         return (
-            <div>
-                <h1>This is the details page for the movie {this.props.details.map(movie => {
-                    return (
-                        <>
-                            {movie.title}
-                        </>
-                    )
-                })}</h1>
+            <div className='descriptionCardContainer'>
+                <div className='descriptionCard'>
+                    <h1>{this.props.details[0]?.title}</h1>
+                    <img alt='Moive Poster' src={this.props.details[0]?.poster} />
+                    <h2>Genres: {this.getGenres()}</h2>
+                    <h3>Description</h3>
+                    <h4>{this.props.details[0]?.description}</h4>
+                    <button onClick={this.backToHome}>Back To List</button>
+                </div>
             </div >
         )
     }
