@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
       res.send(result.rows);
     })
     .catch((err) => {
-      console.log('Error completing SELECT plant query', err);
+      console.log('Error completing SELECT movies query', err);
       res.sendStatus(500);
     });
 });

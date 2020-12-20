@@ -52,6 +52,10 @@ class MovieForm extends Component {
         }
     }
 
+    componentDidMount() {
+        this.props.dispatch({ type: 'FETCH_GENRE' })
+    }
+
     handleChange = (event, inputProperty) => {
         this.setState({
             newMovie: {
@@ -69,8 +73,10 @@ class MovieForm extends Component {
     render() {
         const { classes } = this.props;
         const { title, poster, description, genre } = this.state.newMovie
+        console.log('This is reduxState', this.props.genres)
         return (
             <div>
+                {JSON.stringify(this.state.newMovie)}
                 <h2>Add a Movie to the Homepage!</h2>
                 <form className={classes.container} noValidate autoComplete="off" onSubmit={this.handleSubmit} >
                     <TextField
@@ -110,9 +116,11 @@ class MovieForm extends Component {
                             <MenuItem value="">
                                 <em>None</em>
                             </MenuItem>
-                            <MenuItem value={10}>Adventure</MenuItem>
-                            <MenuItem value={20}>Science Fiction</MenuItem>
-                            <MenuItem value={30}>Romantic</MenuItem>
+                            {this.props.genres.map(genre => {
+                                return (
+                                    <MenuItem value={genre.name}>{genre.name}</MenuItem>
+                                )
+                            })}
                         </Select>
                     </FormControl>
                     <Button variant="contained" color="primary" type='submit' className={classes.button} >Submit Movie</Button>
@@ -122,4 +130,8 @@ class MovieForm extends Component {
     }
 }
 
-export default withStyles(styles)(connect()(MovieForm));
+const mapStateToProps = reduxState => ({
+    genres: reduxState.genres
+});
+
+export default withStyles(styles)(connect(mapStateToProps)(MovieForm));
