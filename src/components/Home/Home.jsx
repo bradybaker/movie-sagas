@@ -14,7 +14,7 @@ class Home extends Component {
         console.log('This is redux state', this.props.movies)
         return (
             <div>
-                <h1>This is the Home/Movie list page</h1>
+                <h1>Your Movie List!</h1>
                 <div className='movieCardContainer'>
                     {
                         this.props.movies.map(movie => {
