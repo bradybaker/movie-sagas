@@ -20,20 +20,8 @@ const styles = theme => ({
         marginLeft: theme.spacing.unit,
         marginRight: theme.spacing.unit,
     },
-    dense: {
-        marginTop: 16,
-    },
-    menu: {
-        width: 200,
-    },
-    root: {
-        display: 'flex',
-    },
     formControl: {
         margin: theme.spacing.unit * 3,
-    },
-    group: {
-        margin: `${theme.spacing.unit}px 0`,
     },
     button: {
         margin: theme.spacing.unit,
@@ -67,7 +55,7 @@ class MovieForm extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        // this.props.dispatch({ type: 'ADD_MOVIE', payload: this.state.newMovie })
+        this.props.dispatch({ type: 'ADD_MOVIE', payload: this.state.newMovie })
     }
 
     render() {
@@ -113,12 +101,9 @@ class MovieForm extends Component {
                             onChange={(event) => this.handleChange(event, 'genre')}
                             input={<FilledInput name="Genre" id="filled-genre-simple" />}
                         >
-                            <MenuItem value="">
-                                <em>None</em>
-                            </MenuItem>
                             {this.props.genres.map(genre => {
                                 return (
-                                    <MenuItem value={genre.name}>{genre.name}</MenuItem>
+                                    <MenuItem key={genre.id} value={genre.name}>{genre.name}</MenuItem>
                                 )
                             })}
                         </Select>
