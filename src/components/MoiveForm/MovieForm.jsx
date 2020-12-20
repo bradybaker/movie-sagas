@@ -8,21 +8,23 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import './MovieForm.css'
 
 
 const styles = theme => ({
     container: {
         display: 'grid',
-        flexWrap: 'wrap',
-        marginLeft: 400,
-        marginRight: 400
+        marginLeft: '50em',
+        marginRight: '50em'
     },
     textField: {
         marginLeft: theme.spacing.unit,
         marginRight: theme.spacing.unit,
+        backgroundColor: 'white',
     },
     formControl: {
         margin: theme.spacing.unit * 3,
+        backgroundColor: 'white'
     },
     button: {
         margin: theme.spacing.unit,
@@ -67,7 +69,7 @@ class MovieForm extends Component {
 
     render() {
         const { classes } = this.props;
-        const { title, poster, description, genre } = this.state.newMovie
+        const { title, poster, description, genre_id } = this.state.newMovie
         return (
             <div>
                 <h2>Add a Movie to the Homepage!</h2>
@@ -91,8 +93,10 @@ class MovieForm extends Component {
                         variant="outlined"
                     />
                     <TextField
-                        id="outlined-name"
+                        id="outlined-multiline-flexible"
                         label="Movie Description"
+                        rowsMax='10'
+                        multiline
                         className={classes.textField}
                         value={description}
                         onChange={(event) => this.handleChange(event, 'description')}
@@ -100,11 +104,11 @@ class MovieForm extends Component {
                         variant="outlined"
                     />
                     <FormControl variant="filled" className={classes.formControl}>
-                        <InputLabel htmlFor="filled-genre-simple">Genre</InputLabel>
+                        <InputLabel htmlFor="filled-genre-simple">Genres</InputLabel>
                         <Select
-                            value={genre}
+                            value={genre_id}
                             onChange={(event) => this.handleChange(event, 'genre_id')}
-                            input={<FilledInput name="Genre" id="filled-genre-simple" />}
+                            input={<FilledInput name="Genres" id="filled-genre-simple" />}
                         >
                             {this.props.genres.map(genre => {
                                 return (

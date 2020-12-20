@@ -1,6 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import './Details.css'
+import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+
+const styles = theme => ({
+    button: {
+        margin: theme.spacing.unit,
+    },
+});
 
 
 class Details extends Component {
@@ -23,6 +31,7 @@ class Details extends Component {
     }
 
     render() {
+        const classes = this.props.classes
         console.log('This is reduxState details-->', this.props.details[0]?.title)
         return (
             <div className='descriptionCardContainer'>
@@ -30,9 +39,9 @@ class Details extends Component {
                     <h1>{this.props.details[0]?.title}</h1>
                     <img className='images  hvr-grow-shadow' alt='Moive Poster' src={this.props.details[0]?.poster} />
                     <h2>Genres: {this.formatGenres()}</h2>
-                    <h3>Description</h3>
-                    <h4>{this.props.details[0]?.description}</h4>
-                    <button onClick={this.backToHome}>Back To List</button>
+                    <p className='movieDescriptionTitle'>Description</p>
+                    <p className='movieDescriptionContent'>{this.props.details[0]?.description}</p>
+                    <Button variant="outlined" color="inherit" className={classes.button} onClick={this.backToHome}>Back To List</Button>
                 </div>
             </div >
         )
@@ -43,4 +52,4 @@ const mapStateToProps = reduxState => ({
     details: reduxState.details
 });
 
-export default connect(mapStateToProps)(Details);
+export default withStyles(styles)(connect(mapStateToProps)(Details));
