@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import './Details.css'
+
 
 class Details extends Component {
 
@@ -26,7 +28,7 @@ class Details extends Component {
             <div className='descriptionCardContainer'>
                 <div className='descriptionCard'>
                     <h1>{this.props.details[0]?.title}</h1>
-                    <img alt='Moive Poster' src={this.props.details[0]?.poster} />
+                    <img className='images  hvr-grow-shadow' alt='Moive Poster' src={this.props.details[0]?.poster} />
                     <h2>Genres: {this.formatGenres()}</h2>
                     <h3>Description</h3>
                     <h4>{this.props.details[0]?.description}</h4>
