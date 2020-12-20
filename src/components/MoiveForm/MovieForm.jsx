@@ -44,6 +44,11 @@ class MovieForm extends Component {
         this.props.dispatch({ type: 'FETCH_GENRE' })
     }
 
+    handleCancel = () => {
+        this.props.history.push('/');
+        alert('Movie not submitted');
+    }
+
     handleChange = (event, inputProperty) => {
         this.setState({
             newMovie: {
@@ -56,15 +61,14 @@ class MovieForm extends Component {
     handleSubmit = (event) => {
         event.preventDefault()
         this.props.dispatch({ type: 'ADD_MOVIE', payload: this.state.newMovie })
+        this.props.history.push('/')
     }
 
     render() {
         const { classes } = this.props;
         const { title, poster, description, genre } = this.state.newMovie
-        console.log('This is reduxState', this.props.genres)
         return (
             <div>
-                {JSON.stringify(this.state.newMovie)}
                 <h2>Add a Movie to the Homepage!</h2>
                 <form className={classes.container} noValidate autoComplete="off" onSubmit={this.handleSubmit} >
                     <TextField
@@ -109,6 +113,7 @@ class MovieForm extends Component {
                         </Select>
                     </FormControl>
                     <Button variant="contained" color="primary" type='submit' className={classes.button} >Submit Movie</Button>
+                    <Button variant="contained" color="secondary" onClick={this.handleCancel} className={classes.button} >Cancel</Button>
                 </form>
             </div >
         )
