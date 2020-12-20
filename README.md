@@ -8,6 +8,9 @@ This web application is a full-stack movie list that the user can populate thems
 
 ## Screen Shot
 
+![Home-Page](wireframes/homepage.png)
+![DetailsPage](wireframes/details.png)
+![Form-Page](wireframes/form.png)
 
 
 ## Prerequisites
@@ -25,8 +28,10 @@ This web application is a full-stack movie list that the user can populate thems
 
 ## Usage
 
-- If you are a student - Fill out the survey as instructed. You are able to go back and change your answers if you would like. 
-- If you are an instructor - Navigate to the `/admin` page to review all of the results 
+- On load you should see a list of all the movies  
+- On the homepage users can click to go to a specific movie's detail page or delete the movie from the list
+- If users click the 'Add a Movie!' link on the nav bar - they can use the form on the page to add a new movie to the list!
+- Once the user clicks the 'submit' button they will be taken back to the home page to see the new movie they have added 
 
 ## Built With 
 
