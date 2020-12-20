@@ -36,7 +36,7 @@ class MovieForm extends Component {
             title: '',
             poster: '',
             description: '',
-            genre: ''
+            genre_id: ''
         }
     }
 
@@ -98,12 +98,12 @@ class MovieForm extends Component {
                         <InputLabel htmlFor="filled-genre-simple">Genre</InputLabel>
                         <Select
                             value={genre}
-                            onChange={(event) => this.handleChange(event, 'genre')}
+                            onChange={(event) => this.handleChange(event, 'genre_id')}
                             input={<FilledInput name="Genre" id="filled-genre-simple" />}
                         >
                             {this.props.genres.map(genre => {
                                 return (
-                                    <MenuItem key={genre.id} value={genre.name}>{genre.name}</MenuItem>
+                                    <MenuItem key={genre.id} value={genre.id}>{genre.name}</MenuItem>
                                 )
                             })}
                         </Select>
