@@ -19,6 +19,7 @@ function* rootSaga() {
     yield takeEvery('FETCH_GENRE', fetchGenre);
     yield takeEvery('ADD_MOVIE', addMovie);
     yield takeEvery('DELETE_MOVIE', deleteMovie);
+    yield takeEvery('UPDATE_MOVIE', editMovie)
 }
 
 function* addMovie(action) {
@@ -65,6 +66,15 @@ function* fetchMovie() {
         yield put({ type: 'SET_MOVIES', payload: response.data })
     } catch (error) {
         console.log('Error in fetchMovie')
+    }
+}
+
+function* editMovie(action) {
+    try {
+        console.log('This is action.payload EDIT', action.payload)
+        yield axios.put(`/api/movie/${action.payload.id}`, action.payload)
+    } catch (err) {
+        console.log('Error in editMovie', err)
     }
 }
 

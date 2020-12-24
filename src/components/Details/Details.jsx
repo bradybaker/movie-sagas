@@ -30,6 +30,11 @@ class Details extends Component {
         this.props.history.push('/');
     }
 
+    goEdit = (id) => {
+
+        this.props.history.push(`/editForm/${id}`);
+    }
+
     render() {
         const classes = this.props.classes
         console.log('This is reduxState details-->', this.props.details[0]?.title)
@@ -42,6 +47,7 @@ class Details extends Component {
                     <p className='movieDescriptionTitle'>Description</p>
                     <p className='movieDescriptionContent'>{this.props.details[0]?.description}</p>
                     <Button variant="outlined" color="inherit" className={classes.button} onClick={this.backToHome}>Back To List</Button>
+                    <Button variant="outlined" color="inherit" className={classes.button} onClick={(event) => this.goEdit(event, this.props.details[0]?.id)}>Edit</Button>
                 </div>
             </div >
         )

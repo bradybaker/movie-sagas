@@ -75,4 +75,16 @@ router.delete('/:id', (req, res) => {
     });
 });
 
+router.put('/:id', (req, res) => {
+  let id = req.params.id
+  let title = req.body.title
+  let description = req.body.description
+  const queryText = 'UPDATE movies SET title=$1, description=$2 WHERE id=$3'
+  pool.query(queryText, [title, description, id])
+    .then(() => { res.sendStatus(201) })
+    .catch(err => {
+      console.log('Error in PUT movieRouter', err)
+    })
+})
+
 module.exports = router;
